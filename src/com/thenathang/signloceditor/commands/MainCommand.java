@@ -26,10 +26,8 @@ public class MainCommand implements CommandExecutor {
 		if (!cmd.getName().equalsIgnoreCase("signlocedit"))
 			return false;
 		
-		Player player = (Player)sender;
-		
-		if (!player.hasPermission("sle.admin")) {
-			player.sendMessage(colorMe("&cYou don't have permission for this!"));
+		if (!sender.hasPermission("sle.admin")) {
+			sender.sendMessage(colorMe("&cYou don't have permission for this!"));
 			return true;
 		}
 		
@@ -39,7 +37,7 @@ public class MainCommand implements CommandExecutor {
 		 * Usage: /sle [help]
 		 */
 		if (args.length < 1 || args[0].equalsIgnoreCase("help"))
-			HelpScreen.sendHelp(player);
+			HelpScreen.sendHelp((Player) sender);
 		
 		if (args.length > 0) {
 			
@@ -48,7 +46,7 @@ public class MainCommand implements CommandExecutor {
 					sender.sendMessage(colorMe("&cUsage: /sle setloc <name>"));
 					return true;
 				}
-				
+				Player player = (Player) sender;
 				Block target = player.getTargetBlock((Set<org.bukkit.Material>) null, 10);
 				
 				if (target == null || !(target.getState() instanceof Sign)) {
@@ -95,7 +93,7 @@ public class MainCommand implements CommandExecutor {
 				
 				message = colorMe(message).replace("\\s", " ");
 				
-				if (message.length() > 15) {
+				if (message.length() > 16) {
 					sender.sendMessage(colorMe("&cSpecified message is too long!"));
 					return true;
 				}
@@ -105,6 +103,29 @@ public class MainCommand implements CommandExecutor {
 				sign.setLine(line, message);
 				sign.update();
 				return true;
+			}
+			
+			if (args[0].equalsIgnoreCase("list")) {
+				Set<String> signsArray = ConfigSigns.getSigns();
+				
+				if (signsArray == null) {
+					sender.sendMessage(colorMe("&cNo signs found!"));
+					return true;
+				}
+				
+				StringBuilder signs = new StringBuilder();
+
+				for (String sign : signsArray) {
+				    if (signs.length() != 0) {
+				    	signs.append("&7, ");
+				    }
+				    
+				    signs.append("&e" + sign);
+				}
+				
+				signs.append("&7.");
+				
+				sender.sendMessage(colorMe("&aAll Signs: " + signs));
 			}
 			
 		}
