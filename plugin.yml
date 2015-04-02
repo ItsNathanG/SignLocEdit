@@ -7,6 +7,6 @@ commands:
     aliases: [sle]
     description: Main command to edit a sign!
 permisions:
-  se.admin:
+  sle.admin:
     default: op
     description: Allows you to edit your signs.
