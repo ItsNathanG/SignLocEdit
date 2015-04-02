@@ -1,0 +1,12 @@
+name: SignLocEdit
+main: com.thenathang.signloceditor.SignLocEdit
+author: NathanG
+version: 1.2.0
+commands:
+  signlocedit:
+    aliases: [sle]
+    description: Main command to edit a sign!
+permisions:
+  se.admin:
+    default: op
+    description: Allows you to edit your signs.
