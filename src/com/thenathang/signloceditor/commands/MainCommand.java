@@ -105,6 +105,36 @@ public class MainCommand implements CommandExecutor {
 				return true;
 			}
 			
+			if (args[0].equalsIgnoreCase("clear")) {
+				if (args.length < 3) {
+					sender.sendMessage(colorMe("&cUsage: /sle clear <sign> <line>"));
+					return true;
+				}
+				
+				int line;
+				
+				try {	
+					line = Integer.valueOf(Integer.parseInt(args[2]));
+				} catch (Exception e) {
+					sender.sendMessage(colorMe("&cCould not parse " + args[2] + " for the line number!"));
+					return true;
+				}
+				
+				if (line > 4 || line < 1) {
+					sender.sendMessage(colorMe("&cCould not parse " + args[2] + " for the line number!"));
+					return true;
+				}
+				
+				Sign sign = (Sign) ConfigSigns.getLocation(args[1]).getBlock().getState();
+				line = line - 1;
+				
+				sender.sendMessage(colorMe("&aCleared line " + (line + 1) + " of sign " + args[1] + "!"));
+				
+				sign.setLine(line, "");
+				sign.update();
+				return true;
+			}
+			
 			if (args[0].equalsIgnoreCase("list")) {
 				Set<String> signsArray = ConfigSigns.getSigns();
 				
