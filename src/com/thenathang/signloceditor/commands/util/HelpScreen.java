@@ -1,6 +1,6 @@
 package com.thenathang.signloceditor.commands.util;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
 import org.bukkit.entity.Player;
 
