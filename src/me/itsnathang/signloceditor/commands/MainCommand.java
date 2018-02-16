@@ -36,10 +36,18 @@ public class MainCommand implements CommandExecutor {
 		 * Description: Send help to player.
 		 * Usage: /sle [help]
 		 */
-		if (args.length < 1 || args[0].equalsIgnoreCase("help"))
-			HelpScreen.sendHelp((Player) sender);
+		if (args.length < 1) {
+			sender.sendMessage(colorMe("&aSignLoc Edit &7v&a") + plugin.getDescription().getVersion() + colorMe("&7 by &aNathanG"));
+			sender.sendMessage(colorMe("&7Use &a/sle help &7for a tutorial."));
+			return true;
+		}
 		
 		if (args.length > 0) {
+
+			if (args[0].equalsIgnoreCase("help")) {
+				HelpScreen.sendHelp((Player) sender);
+				return true;
+			}
 			
 			if (args[0].equalsIgnoreCase("setloc")) {
 				if (args.length < 2) {

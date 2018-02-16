@@ -10,12 +10,7 @@ public class HelpScreen {
 	public static void sendHelp(Player player) {
 		JSONMessage msg = JSONMessage.create();
 
-		msg.then("SignLoc Edit").color(ChatColor.GREEN)
-				.then(" by ").color(ChatColor.GRAY)
-				.then("NathanG").color(ChatColor.GREEN)
-				.newline();
-
-		msg.then("  Quick Tutorial:").color(ChatColor.GREEN)
+		msg.then("SignLoc Edit Quick Tutorial:").color(ChatColor.GREEN)
 				.newline();
 
 		msg.then("» ").color(ChatColor.GRAY)
