@@ -1,5 +1,5 @@
 name: SignLocEdit
-main: com.thenathang.signloceditor.SignLocEdit
+main: me.itsnathang.signloceditor.SignLocEdit
 author: NathanG
 version: 1.2.0
 commands:

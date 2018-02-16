@@ -1,9 +1,9 @@
-package com.thenathang.signloceditor;
+package me.itsnathang.signloceditor;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.thenathang.signloceditor.commands.MainCommand;
-import com.thenathang.signloceditor.configs.ConfigSigns;
+import me.itsnathang.signloceditor.commands.MainCommand;
+import me.itsnathang.signloceditor.configs.ConfigSigns;
 
 public class SignLocEdit extends JavaPlugin {
 	
