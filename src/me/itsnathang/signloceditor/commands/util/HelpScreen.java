@@ -1,4 +1,4 @@
-package com.thenathang.signloceditor.commands.util;
+package me.itsnathang.signloceditor.commands.util;
 
 import org.bukkit.ChatColor;
 

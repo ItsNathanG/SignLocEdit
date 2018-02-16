@@ -1,15 +1,14 @@
-package com.thenathang.signloceditor.configs;
+package me.itsnathang.signloceditor.configs;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 import java.util.logging.Level;
 
+import me.itsnathang.signloceditor.SignLocEdit;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.YamlConfiguration;
-
-import com.thenathang.signloceditor.SignLocEdit;
 
 public class ConfigSigns {
 	public static YamlConfiguration signs;

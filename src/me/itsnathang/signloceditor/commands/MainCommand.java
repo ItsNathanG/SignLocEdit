@@ -1,7 +1,9 @@
-package com.thenathang.signloceditor.commands;
+package me.itsnathang.signloceditor.commands;
 
 import java.util.Set;
 
+import me.itsnathang.signloceditor.SignLocEdit;
+import me.itsnathang.signloceditor.configs.ConfigSigns;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -10,9 +12,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.thenathang.signloceditor.SignLocEdit;
-import com.thenathang.signloceditor.commands.util.HelpScreen;
-import com.thenathang.signloceditor.configs.ConfigSigns;
+import me.itsnathang.signloceditor.commands.util.HelpScreen;
 
 public class MainCommand implements CommandExecutor {
 	static SignLocEdit plugin;
@@ -68,7 +68,7 @@ public class MainCommand implements CommandExecutor {
 				int line;
 				
 				try {	
-					line = Integer.valueOf(Integer.parseInt(args[2]));
+					line = Integer.parseInt(args[2]);
 				} catch (Exception e) {
 					sender.sendMessage(colorMe("&cCould not parse " + args[2] + " for the line number!"));
 					return true;
@@ -114,7 +114,7 @@ public class MainCommand implements CommandExecutor {
 				int line;
 				
 				try {	
-					line = Integer.valueOf(Integer.parseInt(args[2]));
+					line = Integer.parseInt(args[2]);
 				} catch (Exception e) {
 					sender.sendMessage(colorMe("&cCould not parse " + args[2] + " for the line number!"));
 					return true;
@@ -150,7 +150,7 @@ public class MainCommand implements CommandExecutor {
 				    	signs.append("&7, ");
 				    }
 				    
-				    signs.append("&e" + sign);
+				    signs.append("&e").append(sign);
 				}
 				
 				signs.append("&7.");
@@ -164,7 +164,9 @@ public class MainCommand implements CommandExecutor {
 		return true;
 	}
 	
-	public String colorMe(String s) {
+	private String colorMe(String s) {
+		if (s == null) return null;
+
 		return ChatColor.translateAlternateColorCodes('&', s);
 	}
 	
