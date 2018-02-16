@@ -3,3 +3,9 @@ bin/
 .classpath
 .project
 .settings/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+src/META-INF/
